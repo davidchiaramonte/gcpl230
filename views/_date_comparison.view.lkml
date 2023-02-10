@@ -22,7 +22,7 @@ view: _date_comparison {
   dimension: days_in_period {
     description: "Gives the number of days in the current period date range"
     type: number
-    sql: DATEDIFF(day, {% date_start current_date_range %}, {% date_end current_date_range %}) ;;
+    sql: DATEDIFF({% date_start current_date_range %}, {% date_end current_date_range %}) ;;
     hidden: yes
   }
 
@@ -284,16 +284,16 @@ view: _date_comparison {
     CASE
     -- WHEN {% condition current_date_range %} (${event_raw}) {% endcondition %}
     WHEN ${event_raw} between ${period_1_start} and ${period_1_end}
-    THEN DATEDIFF(day, {% date_start current_date_range %},${event_raw})+1
+    THEN DATEDIFF({% date_start current_date_range %},${event_raw})+1
 
       WHEN ${event_raw} between ${period_2_start} and ${period_2_end}
-      THEN DATEDIFF(day,${period_2_start},${event_raw})+1
+      THEN DATEDIFF(${period_2_start},${event_raw})+1
 
       WHEN ${event_raw} between ${period_3_start} and ${period_3_end}
-      THEN DATEDIFF(day,${period_3_start},${event_raw})+1
+      THEN DATEDIFF(${period_3_start},${event_raw})+1
 
       WHEN ${event_raw} between ${period_4_start} and ${period_4_end}
-      THEN DATEDIFF(day,${period_4_start},${event_raw})+1
+      THEN DATEDIFF(${period_4_start},${event_raw})+1
       END
 
       {% else %} NULL
