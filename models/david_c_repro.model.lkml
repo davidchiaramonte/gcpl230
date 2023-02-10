@@ -118,7 +118,7 @@ explore: order_items {
   label: "Order Items"
   sql_always_where:
   {% if order_items.current_date_range._is_filtered %}
-  {% condition order_itemscurrent_date_range %} ${event_raw} {% endcondition %}
+  {% condition order_items.current_date_range %} ${event_raw} {% endcondition %}
 
   {% if order_items.previous_date_range._is_filtered or order_items.compare_to._in_query %}
   {% if order_items.comparison_periods._parameter_value == "2" %}
