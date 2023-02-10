@@ -11,7 +11,6 @@ filter: current_date_range {
   label: "1. Date Range"
   description: "Select the date range you are interested in using this filter, can be used by itself. Make sure any filter on Event Date covers this period, or is removed."
   type: date
-  convert_tz: yes
 }
 filter: previous_date_range {
   view_label: "Timeline Comparison Fields"
@@ -21,7 +20,6 @@ filter: previous_date_range {
   description: "Use this if you want to specify a custom date range to compare to (limited to 2 comparison periods). Always use with '1. Date Range' filter (or it will error). Make sure any filter on Event Date covers this period, or is removed."
 
   type: date
-  convert_tz: yes
 }
 
 dimension_group: in_period {
