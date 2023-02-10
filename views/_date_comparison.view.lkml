@@ -49,16 +49,16 @@ view: _date_comparison {
     sql:
     {% if compare_to._in_query %}
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day, -1*${days_in_period},{% date_start current_date_range %} )
+    DATE_ADD(day, -1*${days_in_period},{% date_start current_date_range %} )
 
       {% elsif compare_to._parameter_value == "Year" and previous_year_shifted_normal._parameter_value == "Shifted" %}
-      DATEADD(day,-364,{% date_start current_date_range %} )
+      DATE_ADD(day,-364,{% date_start current_date_range %} )
 
       {% elsif compare_to._parameter_value == "Year" and previous_year_shifted_normal._parameter_value == "Normal" %}
-      DATEADD(day,-365,{% date_start current_date_range %} )
+      DATE_ADD(day,-365,{% date_start current_date_range %} )
 
       {% else %}
-      DATEADD({% parameter compare_to %},-1,{% date_start current_date_range %} )
+      DATE_ADD({% parameter compare_to %},-1,{% date_start current_date_range %} )
       {% endif %}
       {% else %}
       {% date_start previous_date_range %}
@@ -72,16 +72,16 @@ view: _date_comparison {
     sql:
     {% if compare_to._in_query %}
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day,-1,{% date_start current_date_range %})
+    DATE_ADD(day,-1,{% date_start current_date_range %})
 
       {% elsif compare_to._parameter_value == "Year" and previous_year_shifted_normal._parameter_value == "Shifted" %}
-      DATEADD(day,-364,{% date_end current_date_range %} )
+      DATE_ADD(day,-364,{% date_end current_date_range %} )
 
       {% elsif compare_to._parameter_value == "Year" and previous_year_shifted_normal._parameter_value == "Normal" %}
-      DATEADD(day,-365,{% date_end current_date_range %} )
+      DATE_ADD(day,-365,{% date_end current_date_range %} )
 
       {% else %}
-      DATEADD({% parameter compare_to %},-1,DATEADD(day,-1,{% date_end current_date_range %} ) )
+      DATE_ADD({% parameter compare_to %},-1,DATE_ADD(day,-1,{% date_end current_date_range %} ) )
       {% endif %}
       {% else %}
       {% date_end previous_date_range %}
@@ -94,9 +94,9 @@ view: _date_comparison {
     type: date
     sql:
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day,-2*${days_in_period},{% date_start current_date_range %})
+    DATE_ADD(day,-2*${days_in_period},{% date_start current_date_range %})
     {% else %}
-    DATEADD({% parameter compare_to %},-2,{% date_start current_date_range %} )
+    DATE_ADD({% parameter compare_to %},-2,{% date_start current_date_range %} )
     {% endif %};;
     hidden: yes
 
@@ -107,9 +107,9 @@ view: _date_comparison {
     type: date
     sql:
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day,-1,${period_2_start})
+    DATE_ADD(day,-1,${period_2_start})
     {% else %}
-    DATEADD({% parameter compare_to %},-2,DATEADD(day,-1,{% date_end current_date_range %}) )
+    DATE_ADD({% parameter compare_to %},-2,DATE_ADD(day,-1,{% date_end current_date_range %}) )
     {% endif %};;
     hidden: yes
   }
@@ -119,9 +119,9 @@ view: _date_comparison {
     type: date
     sql:
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day,-3*${days_in_period},{% date_start current_date_range %} )
+    DATE_ADD(day,-3*${days_in_period},{% date_start current_date_range %} )
     {% else %}
-    DATEADD({% parameter compare_to %},-3,{% date_start current_date_range %} )
+    DATE_ADD({% parameter compare_to %},-3,{% date_start current_date_range %} )
     {% endif %};;
     hidden: yes
   }
@@ -131,9 +131,9 @@ view: _date_comparison {
     type: date
     sql:
     {% if compare_to._parameter_value == "Period" %}
-    DATEADD(day,-1,${period_2_start})
+    DATE_ADD(day,-1,${period_2_start})
     {% else %}
-    DATEADD({% parameter compare_to %},-3,DATEADD(day,-1,{% date_end current_date_range %}) )
+    DATE_ADD({% parameter compare_to %},-3,DATE_ADD(day,-1,{% date_end current_date_range %}) )
     {% endif %};;
     hidden: yes
   }
@@ -270,7 +270,7 @@ view: _date_comparison {
     description: "Use this as your date dimension when comparing periods. Aligns the all previous periods onto the current period"
     label: "Current Period"
     type: time
-    sql: DATEADD(day,${day_in_period}-1,{% date_start current_date_range %} ) ;;
+    sql: DATE_ADD(day,${day_in_period}-1,{% date_start current_date_range %} ) ;;
     view_label: "Date Range Comparison Fields"
     timeframes: [date, week, month, quarter, year, month_name, week_of_year,
       fiscal_month_num,fiscal_quarter,fiscal_year,fiscal_quarter_of_year]
