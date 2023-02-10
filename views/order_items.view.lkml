@@ -14,6 +14,7 @@ view: order_items {
     sql: ${TABLE}."DATE" ;;
     type: date_raw
     hidden: yes
+    convert_tz: no
   }
 
   dimension: inventory_item_id {
