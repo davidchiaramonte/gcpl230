@@ -1,11 +1,19 @@
+include: "_date_comparison.view"
 view: order_items {
   sql_table_name: demo_db.order_items ;;
   drill_fields: [id]
+  extends: [_date_comparison]
 
   dimension: id {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+  }
+
+  dimension: event_raw {
+    sql: ${TABLE}."DATE" ;;
+    type: date_raw
+    hidden: yes
   }
 
   dimension: inventory_item_id {
