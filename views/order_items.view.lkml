@@ -11,10 +11,9 @@ view: order_items {
   }
 
   dimension: event_raw {
-    sql: ${TABLE}."DATE" ;;
+    sql: ${TABLE}.DATE ;;
     type: date_raw
     hidden: yes
-    convert_tz: no
   }
 
   dimension: inventory_item_id {
@@ -51,7 +50,6 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.returned_at ;;
-    convert_tz: no
   }
 
   dimension: sale_price {
