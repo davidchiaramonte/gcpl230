@@ -11,7 +11,7 @@ view: order_items {
   }
 
   dimension: event_raw {
-    sql: ${TABLE}."DATE" ;;
+    sql: ${TABLE}.date ;;
     type: date_raw
     hidden: yes
   }
