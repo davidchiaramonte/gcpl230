@@ -51,6 +51,7 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.returned_at ;;
+    convert_tz: no
   }
 
   dimension: sale_price {
