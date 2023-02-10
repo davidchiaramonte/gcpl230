@@ -11,7 +11,7 @@ view: order_items {
   }
 
   dimension: event_raw {
-    sql: ${TABLE}.returned_at ;;
+    sql: ${TABLE}."DATE" ;;
     type: date_raw
     hidden: yes
   }
@@ -38,7 +38,8 @@ view: order_items {
     sql: ${TABLE}.phones ;;
   }
 
-  dimension_group: returned {
+  dimension_group: date {
+    label: "Date"
     type: time
     timeframes: [
       raw,
@@ -49,7 +50,8 @@ view: order_items {
       quarter,
       year
     ]
-    sql: ${TABLE}.returned_at ;;
+    sql: ${TABLE}."DATE" ;;
+    convert_tz: no
   }
 
   dimension: sale_price {
