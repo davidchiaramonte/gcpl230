@@ -1,11 +1,19 @@
+include: "_date_comparison.view"
 view: order_items {
   sql_table_name: demo_db.order_items ;;
   drill_fields: [id]
+  extends: [_date_comparison]
 
   dimension: id {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+  }
+
+  dimension: event_raw {
+    sql: ${TABLE}.returned_at ;;
+    type: date_raw
+    hidden: yes
   }
 
   dimension: inventory_item_id {
@@ -30,6 +38,22 @@ view: order_items {
     sql: ${TABLE}.phones ;;
   }
 
+  #dimension_group: date {
+   # label: "Date"
+    #type: time
+    #timeframes: [
+     # raw,
+      #time,
+      #date,
+     # week,
+    #  month,
+    #  quarter,
+    #  year
+    #]
+    #sql: ${TABLE}."DATE" ;;
+   # convert_tz: no
+  #}
+
   dimension_group: returned {
     type: time
     timeframes: [
@@ -42,6 +66,7 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.returned_at ;;
+    convert_tz: no
   }
 
   dimension: sale_price {
