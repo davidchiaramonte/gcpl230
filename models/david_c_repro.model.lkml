@@ -2,6 +2,8 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view"
+include: "/garbage_collection.dashboard"
+include: "/non-performant-content-monitoring.dashboard"
 
 datagroup: david_c_repro_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;

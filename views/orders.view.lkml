@@ -69,10 +69,34 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+  dimension: case_when_status {
+    type: string
+    sql: CASE WHEN ${status} = 'complete' THEN 'Complete'
+    ELSE 'Other' END;;
+  }
+
+  dimension: one_hundred {
+    type: number
+    sql: '100' ;;
+  }
+
+  measure: sum_of_one_million {
+    type: sum
+    sql: ${one_hundred} ;;
+  }
+
   dimension: user_id {
+    view_label: "Basket Data"
     type: number
     # hidden: yes
     sql: ${TABLE}.user_id ;;
+  }
+
+  dimension: _select_me_for_more_info {
+    view_label: " Need Help With This Explore?"
+    type: string
+    sql: 'Click here for metric definitions!' ;;
+    html: <a href="https://helpful-link.walmart.com">{{rendered_value}}</a> ;;
   }
 
   measure: count {
