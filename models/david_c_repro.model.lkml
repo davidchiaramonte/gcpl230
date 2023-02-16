@@ -1,5 +1,7 @@
 connection: "thelook"
 
+#David is amazing and he's awesome, too.
+
 # include all the views
 include: "/views/**/*.view"
 include: "/garbage_collection.dashboard"
