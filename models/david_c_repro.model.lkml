@@ -1,8 +1,5 @@
 connection: "thelook"
 
-#test comment
-#second test comment
-
 # include all the views
 include: "/views/**/*.view"
 include: "/garbage_collection.dashboard"
