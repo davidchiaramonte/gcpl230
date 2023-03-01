@@ -4,6 +4,13 @@
   preferred_viewer: dashboards-next
   description: ''
   preferred_slug: w6v9xONWvPp1Sv4MDDx2xv
+  filters:
+  - name: filter_name
+    title: "desired filter title"
+    type: field_filter
+    model: system__activity
+    explore: dashboard
+    field: dashboard.title
   elements:
   - title: Dashboards with >25 Tiles
     name: Dashboards with >25 Tiles
