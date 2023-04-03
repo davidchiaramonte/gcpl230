@@ -11,9 +11,13 @@ datagroup: david_c_repro_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+#test comment
+
 persist_with: david_c_repro_default_datagroup
 
 #explore: div_stylebackgroundimage_urldatatexthtmlimgsrc1 {}
+
+explore: date_dt_test {}
 
 explore: imgsrc1onerroralert2 {}
 
