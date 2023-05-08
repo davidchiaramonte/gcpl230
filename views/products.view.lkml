@@ -42,6 +42,10 @@ view: products {
     type: string
     sql: ${TABLE}.sku ;;
   }
+  measure: brand_count {
+    type: sum
+    sql: ${brand} ;;
+  }
 
   measure: count {
     type: count

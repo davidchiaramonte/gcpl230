@@ -7,6 +7,11 @@ datagroup: david_c_repro_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
+access_grant: can_view_financial_data {
+  user_attribute: test
+  allowed_values: [ "finance", "executive" ]
+}
+
 
 persist_with: david_c_repro_default_datagroup
 
@@ -113,6 +118,10 @@ explore: orders {
 }
 
 explore: order_items {
+
+  required_access_grants: [can_view_financial_data]
+
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
