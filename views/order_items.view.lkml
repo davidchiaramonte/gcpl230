@@ -16,6 +16,14 @@ view: order_items {
     hidden: yes
   }
 
+  dimension: html_test {
+    type: string
+    sql: '1' ;;
+    html: <i class="fa-solid fa-dinosaur">{{rendered_value}}</i>;;
+    #html: <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> ;;
+    #html: <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> ;;
+  }
+
   dimension: inventory_item_id {
     type: number
     # hidden: yes

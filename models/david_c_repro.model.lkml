@@ -19,6 +19,12 @@ persist_with: david_c_repro_default_datagroup
 
 explore: date_dt_test {}
 
+explore: orders_pdt {}
+
+explore: sri_test {
+  view_name: orders_pdt
+}
+
 explore: imgsrc1onerroralert2 {}
 
 explore: account {}

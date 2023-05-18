@@ -242,7 +242,6 @@
   - name: Scheduling-Related Monitoring
     type: text
     title_text: Scheduling-Related Monitoring
-    subtitle_text: ''
     body_text: ''
     row: 7
     col: 0
@@ -251,7 +250,6 @@
   - name: Dashboard-Related Monitoring
     type: text
     title_text: Dashboard-Related Monitoring
-    subtitle_text: ''
     body_text: ''
     row: 0
     col: 0
@@ -505,7 +503,6 @@
   - name: Long-Running Content and Schedules
     type: text
     title_text: Long-Running Content and Schedules
-    subtitle_text: ''
     body_text: ''
     row: 20
     col: 0
@@ -540,6 +537,8 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     defaults_version: 1
+    hidden_fields: []
+    y_axes: []
     listen: {}
     row:
     col:
@@ -576,6 +575,8 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     defaults_version: 1
+    hidden_fields: []
+    y_axes: []
     listen: {}
     row:
     col:
@@ -612,6 +613,8 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     defaults_version: 1
+    hidden_fields: []
+    y_axes: []
     listen: {}
     row:
     col:
