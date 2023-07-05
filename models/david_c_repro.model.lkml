@@ -5,6 +5,7 @@ include: "/views/**/*.view"
 include: "/garbage_collection.dashboard"
 include: "/non-performant-content-monitoring.dashboard"
 include: "/views/_date_comparison.view.lkml"
+include: "/dashboard_performance.dashboard"
 
 datagroup: david_c_repro_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
